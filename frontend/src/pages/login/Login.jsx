@@ -31,7 +31,7 @@ const Login = () => {
                     </a>
 
                     <div className='flex justify-center p-4'>
-                        <button className='btn btn-md mt-3 w-1/2 bg-white'>Login</button>
+                        <button className='btn btn-outline btn-md w-1/2 bg-white border-gray-200'>Login</button>
                     </div>
                 </form>
             </div>
