@@ -10,9 +10,11 @@ export const sendMessage = async (req, res) => {
         let conversation = await Conversation.findById(conversationId);
 
         if (!conversation) {
-            conversation = await Conversation.create({
-                participants: [senderId]
-            });
+            res.status(404).json({ error: "Conversation does not exist" });
+        }
+
+        if (!conversation.participants.includes(senderId)) {
+            return res.status(403).json({ error: "You are not a participant in this conversation" });
         }
 
         const newMessage = new Message({
