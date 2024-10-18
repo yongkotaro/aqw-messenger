@@ -9,7 +9,7 @@ const Sidebar = ({ setActiveComponent, activeComponent }) => {
     return (
         <div className='card p-4 lg:flex lg:flex-col lg:gap-5'>
             <button
-                className={`btn btn-square btn-outline no-animation text-white ${activeComponent === "users" ? "bg-gray-400 " : "text-white"
+                className={`btn btn-square btn-outline no-animation text-white ${activeComponent === "users" ? "bg-gray-400 " : ""
                     }`}
                 onClick={() => setActiveComponent("users")}
             >
@@ -17,7 +17,7 @@ const Sidebar = ({ setActiveComponent, activeComponent }) => {
             </button>
 
             <button
-                className={`btn btn-square btn-outline no-animation text-white ${activeComponent === "chats" ? "bg-gray-400 " : "text-white"
+                className={`btn btn-square btn-outline no-animation text-white ${activeComponent === "chats" ? "bg-gray-400 " : ""
                     }`}
                 onClick={() => setActiveComponent("chats")}
             >

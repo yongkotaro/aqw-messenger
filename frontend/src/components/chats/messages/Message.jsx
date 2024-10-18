@@ -1,15 +1,20 @@
-import React from 'react'
+import { useAuthContext } from "../../../context/AuthContext";
+import { extractTime } from "../../../utils/extractTime";
 
-const Message = () => {
+const Message = ({ message }) => {
+    const { authUser } = useAuthContext();
+    const fromMe = message.senderId === authUser._id;
+    console.log("authUser._id:", authUser._id);
+    console.log("message.senderId:", message.senderId);
+    const formattedTime = extractTime(message.createdAt);
+    const chatClassName = fromMe ? "chat-end" : "chat-start";
+    const bubbleBgColor = fromMe ? "bg-blue-500" : "";
+
     return (
-        <div className="chat chat-start">
-            <div className="chat-header">
-                Obi-Wan Kenobi
-                <time className="text-xs opacity-50">12:45</time>
-            </div>
-            <div className="chat-bubble">You were the Chosen One!</div>
+        <div className={`chat ${chatClassName}`}>
+            <div className={`chat-bubble text-white ${bubbleBgColor} pb-2`}>{message.message}</div>
+            <div className='chat-footer opacity-50 text-xs flex gap-1 items-center'>{formattedTime}</div>
         </div>
-    )
-}
-
-export default Message
+    );
+};
+export default Message;
