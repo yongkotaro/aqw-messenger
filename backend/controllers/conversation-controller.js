@@ -45,7 +45,6 @@ export const getConversations = async (req, res) => {
 
         res.status(200).json(conversations);
     } catch (error) {
-        console.log("Error in getUserConversations controller: ", error.message);
         res.status(500).json({ error: "Internal server error" });
     }
 };
