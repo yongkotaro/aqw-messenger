@@ -1,12 +1,20 @@
-import MessageContainer from "../../components/messages/MessageContainer";
 import Sidebar from "../../components/sidebar/Sidebar";
+import { useState } from "react";
+import Chats from "./Chats";
+import Users from "./Users";
+
 
 const Home = () => {
+    const [activeComponent, setActiveComponent] = useState("chats");
     return (
-        <div className='flex sm:h-[450px] md:h-[550px] rounded-lg overflow-hidden bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0'>
-            <Sidebar />
-            <MessageContainer />
+        <div className='h-full w-full p-4 flex flex-col lg:flex-row backdrop-blur-lg gap-4'>
+            <Sidebar activeComponent={activeComponent} setActiveComponent={setActiveComponent} />
+
+            {activeComponent === "users" && <Users />}
+            {activeComponent === "chats" && <Chats />}
+
         </div>
     );
 };
 export default Home;
+

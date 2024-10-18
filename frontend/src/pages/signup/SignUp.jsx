@@ -73,7 +73,9 @@ const SignUp = () => {
                     </Link>
 
                     <div className='flex justify-center p-4'>
-                        <button className='btn btn-outline btn-md w-1/2  border-gray-200'>Create account</button>
+                        <button className='btn btn-outline btn-md w-1/2  border-gray-200' disabled={loading}>
+                            {loading ? <span className='loading loading-spinner'></span> : "Sign Up"}
+                        </button>
                     </div>
                 </form>
             </div>

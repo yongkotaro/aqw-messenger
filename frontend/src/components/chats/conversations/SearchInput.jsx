@@ -1,5 +1,3 @@
-import { IoSearchSharp } from "react-icons/io5";
-
 const SearchInput = () => {
     return (
         <label className="input input-bordered flex items-center gap-2">
