@@ -7,7 +7,7 @@ const Sidebar = ({ setActiveComponent, activeComponent }) => {
     const { loading, logout } = useLogout();
 
     return (
-        <div className='card p-4 lg:flex lg:flex-col lg:gap-5'>
+        <div className='border border-white rounded-md p-4 lg:flex lg:flex-col lg:gap-5'>
             <button
                 className={`btn btn-square btn-outline no-animation text-white ${activeComponent === "users" ? "bg-gray-400 " : ""
                     }`}
