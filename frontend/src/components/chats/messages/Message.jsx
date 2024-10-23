@@ -12,7 +12,7 @@ const Message = ({ message }) => {
 
     return (
         <div className={`chat ${chatClassName}`}>
-            <div className={`chat-bubble text-white ${bubbleBgColor} pb-2 text-wrap`}>{message.message}</div>
+            <div className={`chat-bubble text-white ${bubbleBgColor} pb-2 break-words`}>{message.message}</div>
             <div className='chat-footer opacity-50 text-xs flex gap-1 items-center'>{formattedTime}</div>
         </div>
     );

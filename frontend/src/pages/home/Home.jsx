@@ -11,7 +11,6 @@ const Home = () => {
             <Sidebar activeComponent={activeComponent} setActiveComponent={setActiveComponent} />
             {activeComponent === "users" && <Users />}
             {activeComponent === "chats" && <Chats />}
-
         </div>
     );
 };

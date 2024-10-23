@@ -15,6 +15,8 @@ export const createConversation = async (req, res) => {
             }
         }
 
+        participants.push(req.user);
+
         const newConversation = await Conversation.create({
             name,
             participants,
