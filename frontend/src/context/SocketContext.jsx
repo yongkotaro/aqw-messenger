@@ -17,7 +17,7 @@ export const SocketContextProvider = ({ children }) => {
     useEffect(() => {
         if (authUser) {
 
-            const socket = io.connect('http://localhost:3000');
+            const socket = io.connect('https://aqw-messenger.onrender.com');
 
             socket.on("connect_error", (err) => {
                 console.log(err.message);
