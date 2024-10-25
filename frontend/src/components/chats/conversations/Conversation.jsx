@@ -1,18 +1,25 @@
+import React from "react";
+import { useSocketContext } from "../../../context/SocketContext";
 import useConversation from "../../../zustand/useConversation";
 
-
 const Conversation = ({ conversation, lastIdx }) => {
-
     const { selectedConversation, setSelectedConversation } = useConversation();
+    const { socket } = useSocketContext();
     const isSelected = selectedConversation?._id === conversation._id;
+
+    const handleClick = () => {
+        setSelectedConversation(conversation);
+        if (socket) {
+            socket.emit("join conversation", conversation);
+        }
+    };
 
     return (
         <>
             <div
                 className={`flex gap-2 items-center hover:bg-gray-400 rounded p-2 py-1 cursor-pointer
-				${isSelected ? "bg-gray-400" : ""}
-			`}
-                onClick={() => setSelectedConversation(conversation)}
+				${isSelected ? "bg-gray-400" : ""}`}
+                onClick={handleClick} // Call handleClick on click
             >
                 <div className='w-12 rounded-full'>
                     <img
@@ -32,4 +39,5 @@ const Conversation = ({ conversation, lastIdx }) => {
         </>
     );
 };
+
 export default Conversation;

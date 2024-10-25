@@ -1,6 +1,7 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useContext } from "react";
 import { useAuthContext } from "./AuthContext";
 import io from "socket.io-client";
+import useConversation from "../zustand/useConversation";
 
 const SocketContext = createContext();
 
@@ -11,17 +12,23 @@ export const useSocketContext = () => {
 export const SocketContextProvider = ({ children }) => {
     const [socket, setSocket] = useState(null);
     const { authUser } = useAuthContext();
+    const { setMessages } = useConversation();
 
     useEffect(() => {
         if (authUser) {
-            const socket = io("http://127.0.0.1:3000");
+
+            const socket = io.connect('http://localhost:3000');
+
+            socket.on("connect_error", (err) => {
+                console.log(err.message);
+            });
 
             setSocket(socket);
 
             return () => {
                 socket.close();
-                setSocket(null);
             };
+
         } else {
             if (socket) {
                 socket.close();
@@ -30,5 +37,9 @@ export const SocketContextProvider = ({ children }) => {
         }
     }, [authUser]);
 
-    return <SocketContext.Provider value={{ socket }}> {children} </SocketContext.Provider>;
+    return (
+        <SocketContext.Provider value={{ socket }}>
+            {children}
+        </SocketContext.Provider>
+    );
 };
