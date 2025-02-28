@@ -18,7 +18,6 @@ export const getUsers = async (req, res) => {
                 return { ...user.toObject(), level: null, className: null }; // Handle error gracefully
             }
         }));
-        console.log(usersWithData);
         res.status(200).json(usersWithData);
     } catch (error) {
         console.error("Error in getting users ", error.message);
