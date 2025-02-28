@@ -4,10 +4,10 @@ const SearchInput = ({ setSearchTerm }) => {
     };
 
     return (
-        <form className="input input-bordered flex items-center gap-2">
+        <form className="input input-bordered flex items-center gap-2 ">
             <input
                 type="text"
-                className="grow"
+                className="grow text-gray-300"
                 placeholder="Search"
                 onChange={handleSearchChange}
             />

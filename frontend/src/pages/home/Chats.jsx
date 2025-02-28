@@ -3,7 +3,7 @@ import ConversationSidebar from '../../components/chats/conversations/Conversati
 import MessageContainer from '../../components/chats/messages/MessageContainer';
 const Chats = () => {
     return (
-        <div className='flex flex-row'>
+        <div className='w-[900px] flex flex-row'>
             <ConversationSidebar />
             <MessageContainer />
         </div>

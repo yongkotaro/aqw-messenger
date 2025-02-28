@@ -14,7 +14,10 @@ const useGetUsers = () => {
                 if (data.error) {
                     throw new Error(data.error);
                 }
-                setUsers(data);
+
+                // Users are now already returned with additional scraped data (level, className) from the backend
+                setUsers(data); // Directly set the users with the additional data
+
             } catch (error) {
                 toast.error(error.message);
             } finally {
@@ -25,6 +28,7 @@ const useGetUsers = () => {
         getUsers();
     }, []);
 
-    return { loading, conversations };
+    return { users, loading };
 };
+
 export default useGetUsers;
