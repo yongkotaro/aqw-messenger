@@ -1,5 +1,19 @@
 import toast from "react-hot-toast";
 
+function handleInputErrors({ name, size }) {
+    if (!name || !size) {
+        toast.error("Please fill in all fields");
+        return false;
+    }
+
+    if (size < 2 || size > 10) {
+        toast.error("Select size between 2 and 10");
+        return false;
+    }
+
+    return true;
+}
+
 const useCreateLobby = () => {
 
     const createLobby = async ({ name, size }) => {
@@ -28,17 +42,3 @@ const useCreateLobby = () => {
 };
 
 export default useCreateLobby;
-
-function handleInputErrors({ name, size }) {
-    if (!name || !size) {
-        toast.error("Please fill in all fields");
-        return false;
-    }
-
-    if (size < 2 || size > 10) {
-        toast.error("Select size between 2 and 10");
-        return false;
-    }
-
-    return true;
-}
