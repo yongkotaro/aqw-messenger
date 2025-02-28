@@ -1,6 +1,6 @@
 import React from 'react';
 import useGetUsers from '../../hooks/useGetUsers';
-import { DataTable } from '@/components/users/UserTable';
+import { DataTable } from '@/components/users/DataTable';
 
 const Users = () => {
     const { users, loading } = useGetUsers();

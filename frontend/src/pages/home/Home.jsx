@@ -1,8 +1,7 @@
 import Sidebar from "../../components/sidebar/Sidebar";
 import { useState } from "react";
-import Chats from "./Chats";
 import Users from "./Users";
-
+import Lobbies from "./Lobbies";
 
 const Home = () => {
     const [activeComponent, setActiveComponent] = useState("chats");
@@ -10,7 +9,7 @@ const Home = () => {
         <div className='h-full flex flex-row backdrop-filter backdrop-blur-lg'>
             <Sidebar activeComponent={activeComponent} setActiveComponent={setActiveComponent} />
             {activeComponent === "users" && <Users />}
-            {activeComponent === "chats" && <Chats />}
+            {activeComponent === "lobbies" && <Lobbies />}
         </div>
     );
 };
