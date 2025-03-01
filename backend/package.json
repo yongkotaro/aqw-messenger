@@ -1,11 +1,11 @@
 {
-  "name": "aqw-messenger",
+  "name": "backend",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon backend/server.js",
-    "start": "node backend/server.js",
+    "server": "nodemon server.js",
+    "start": "node server.js",
     "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "type": "module",
@@ -13,9 +13,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "aqw-messenger": "file:",
     "axios": "^1.8.1",
+    "backend": "file:",
     "bcryptjs": "^2.4.3",
+    "cally": "^0.8.0",
     "cheerio": "^1.0.0",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.4.5",

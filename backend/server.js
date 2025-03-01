@@ -15,7 +15,7 @@ import { app, server } from './socket/socket.js';
 dotenv.config();
 
 const __dirname = path.resolve();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(cookieParser());
@@ -26,10 +26,16 @@ app.use("/api/users", userRoutes)
 app.use("/api/conversations", conversationRoutes)
 app.use("/api/lobbies", lobbyRoutes)
 
-app.use(express.static(path.join(__dirname, "/frontend/dist")));
+// app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+// app.get("*", (req, res) => {
+//     res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+// });
+// health check
+app.get("/", (_, res) => {
+    return res.status(200).json({
+        status: "healthy",
+    });
 });
 
 
